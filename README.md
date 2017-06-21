@@ -16,12 +16,12 @@ Print text + new line with given color.
 
 ## Colors
 
-* colorRed
-* colorGreen
-* colorYellow
-* colorBlue
-* colorMagenta
-* colorCyan
-* colorWhite
-* colorBold
-* colorUnderline
+* ColorRed
+* ColorGreen
+* ColorYellow
+* ColorBlue
+* ColorMagenta
+* ColorCyan
+* ColorWhite
+* ColorBold
+* ColorUnderline
