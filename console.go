@@ -11,7 +11,7 @@ func setWriter(w func(a ...interface{}) (int, error)) {
 }
 
 func wrap(s string, c string) string {
-	return fmt.Sprintf("%s%s%s", c, s, colorReset)
+	return fmt.Sprintf("%s%s%s", c, s, ColorReset)
 }
 
 // Print to write text with color

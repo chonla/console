@@ -19,12 +19,12 @@ func (m *MockedWriter) Print(a ...interface{}) (int, error) {
 func TestPrintShouldCallFmtPrintWithGivenColor(t *testing.T) {
 	var writer = new(MockedWriter)
 	var data = "Test"
-	var expected = []interface{}{fmt.Sprintf("%s%s%s", colorYellow, data, colorReset)}
+	var expected = []interface{}{fmt.Sprintf("%s%s%s", ColorYellow, data, ColorReset)}
 
 	writer.On("Print", expected).Return(0, nil)
 	setWriter(writer.Print)
 
-	Print(data, colorYellow)
+	Print(data, ColorYellow)
 
 	writer.AssertCalled(t, "Print", expected)
 }
@@ -32,12 +32,12 @@ func TestPrintShouldCallFmtPrintWithGivenColor(t *testing.T) {
 func TestPrintlnShouldCallFmtPrintlnWithGivenColor(t *testing.T) {
 	var writer = new(MockedWriter)
 	var data = "Test"
-	var expected = []interface{}{fmt.Sprintf("%s%s%s\n", colorYellow, data, colorReset)}
+	var expected = []interface{}{fmt.Sprintf("%s%s%s\n", ColorYellow, data, ColorReset)}
 
 	writer.On("Print", expected).Return(0, nil)
 	setWriter(writer.Print)
 
-	Println(data, colorYellow)
+	Println(data, ColorYellow)
 
 	writer.AssertCalled(t, "Print", expected)
 }
