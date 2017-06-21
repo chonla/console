@@ -41,3 +41,29 @@ func TestPrintlnShouldCallFmtPrintlnWithGivenColor(t *testing.T) {
 
 	writer.AssertCalled(t, "Print", expected)
 }
+
+func TestPrintfShouldCallFmtPrintfWithGivenColor(t *testing.T) {
+	var writer = new(MockedWriter)
+	var data = 1
+	var expected = []interface{}{fmt.Sprintf("%s%d%s", ColorYellow, data, ColorReset)}
+
+	writer.On("Print", expected).Return(0, nil)
+	setWriter(writer.Print)
+
+	Printf("%d", data, ColorYellow)
+
+	writer.AssertCalled(t, "Print", expected)
+}
+
+func TestPrintflnShouldCallFmtPrintfAndNewlineWithGivenColor(t *testing.T) {
+	var writer = new(MockedWriter)
+	var data = 1
+	var expected = []interface{}{fmt.Sprintf("%s%d%s\n", ColorYellow, data, ColorReset)}
+
+	writer.On("Print", expected).Return(0, nil)
+	setWriter(writer.Print)
+
+	Printfln("%d", data, ColorYellow)
+
+	writer.AssertCalled(t, "Print", expected)
+}

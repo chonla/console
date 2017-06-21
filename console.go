@@ -1,6 +1,7 @@
 package console
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -15,13 +16,41 @@ func wrap(s string, c string) string {
 }
 
 // Print to write text with color
-func Print(s string, c string) {
+func Print(s string, c string) error {
 	buf := wrap(s, c)
-	writeFn(buf)
+	_, e := writeFn(buf)
+	return e
 }
 
 // Println to write text and new line with color
-func Println(s string, c string) {
+func Println(s string, c string) error {
 	buf := fmt.Sprintf("%s\n", wrap(s, c))
-	writeFn(buf)
+	_, e := writeFn(buf)
+	return e
+}
+
+// Printf to write a formatted text with color
+func Printf(a ...interface{}) error {
+	switch len(a) {
+	case 0:
+		return errors.New("no format specified")
+	case 1:
+		return errors.New("no color specified")
+	}
+	f := a[0].(string)
+	c := a[len(a)-1].(string)
+	return Print(fmt.Sprintf(f, a[1:len(a)-1]...), c)
+}
+
+// Printfln to write a formatted text and newline with color
+func Printfln(a ...interface{}) error {
+	switch len(a) {
+	case 0:
+		return errors.New("no format specified")
+	case 1:
+		return errors.New("no color specified")
+	}
+	f := a[0].(string)
+	c := a[len(a)-1].(string)
+	return Println(fmt.Sprintf(f, a[1:len(a)-1]...), c)
 }
