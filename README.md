@@ -14,6 +14,14 @@ Print text with given color.
 
 Print text + new line with given color.
 
+### Printf(format string, text string, color string)
+
+Print formatted text with given color.
+
+### Printfln(format string, text string, color string)
+
+Print formatted text + new line with given color.
+
 ## Colors
 
 * ColorRed
