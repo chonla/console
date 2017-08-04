@@ -5,6 +5,8 @@ Go colorized console writer
 
 * Print
 * Println
+* Printf
+* Printfln
 
 ### Print(text string, color string)
 
