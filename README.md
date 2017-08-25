@@ -8,19 +8,19 @@ Go colorized console writer
 * Printf
 * Printfln
 
-### Print(text string, color string)
+### Print(text interface{}, color string)
 
 Print text with given color.
 
-### Println(text string, color string)
+### Println(text interface{}, color string)
 
 Print text + new line with given color.
 
-### Printf(format string, text string, color string)
+### Printf(format string, text interface{}, color string)
 
 Print formatted text with given color.
 
-### Printfln(format string, text string, color string)
+### Printfln(format string, text interface{}, color string)
 
 Print formatted text + new line with given color.
 
