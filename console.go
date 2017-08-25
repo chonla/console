@@ -11,19 +11,19 @@ func setWriter(w func(a ...interface{}) (int, error)) {
 	writeFn = w
 }
 
-func wrap(s string, c string) string {
-	return fmt.Sprintf("%s%s%s", c, s, ColorReset)
+func wrap(s interface{}, c string) string {
+	return fmt.Sprintf("%s%v%s", c, s, ColorReset)
 }
 
 // Print to write text with color
-func Print(s string, c string) error {
+func Print(s interface{}, c string) error {
 	buf := wrap(s, c)
 	_, e := writeFn(buf)
 	return e
 }
 
 // Println to write text and new line with color
-func Println(s string, c string) error {
+func Println(s interface{}, c string) error {
 	buf := fmt.Sprintf("%s\n", wrap(s, c))
 	_, e := writeFn(buf)
 	return e
